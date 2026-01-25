@@ -1,80 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acceso WhatsApp</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WinRush</title>
 
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      margin: 0;
       height: 100vh;
-      font-family: Arial, sans-serif;
-      background:
-        linear-gradient(
-          rgba(0,0,0,0.45),
-          rgba(0,0,0,0.45)
-        ),
-        url("fondo.png") center/contain no-repeat;
-      background-color: #000;
+      background: url("fondo.png") center center / cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      font-family: Arial, sans-serif;
     }
 
-    .container {
-      text-align: center;
+    .overlay {
       width: 100%;
-      padding: 20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 18px 38px;
+    .btn-whatsapp {
       background: #25d366;
       color: #000;
-      text-decoration: none;
-      font-size: 20px;
+      padding: 16px 40px;
+      border-radius: 999px;
+      font-size: 18px;
       font-weight: bold;
-      border-radius: 50px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      margin-bottom: 20px;
     }
 
-    .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 14px 35px rgba(37,211,102,0.7);
-    }
-
-    .note {
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
-      font-size: 10px;
-      opacity: 0.45;
+    .small {
+      font-size: 11px;
+      color: #ffffff;
+      opacity: 0.9;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <div class="overlay">
     <a
-      class="btn"
+      class="btn-whatsapp"
       href="https://wa.me/5491156100611"
       target="_blank"
     >
       WhatsApp
     </a>
-  </div>
 
-  <div class="note">
-    Solo para mayores de 18 años
+    <div class="small">
+      Solo para mayores de 18 años
+    </div>
   </div>
 </body>
 </html>
