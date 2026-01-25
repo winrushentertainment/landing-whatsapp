@@ -32,16 +32,34 @@
     }
 
     .btn-whatsapp {
-      background: #25d366;
-      color: #000;
-      padding: 16px 40px;
-      border-radius: 999px;
-      font-size: 18px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-      margin-bottom: 20px;
-    }
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  color: #000;
+  padding: 16px 42px;
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    transform: scale(1);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    transform: scale(1);
+  }
+}
 
     .small {
       font-size: 11px;
