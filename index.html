@@ -13,37 +13,43 @@
     }
 
     body {
-      height: 100vh;
-      background: url("fondo.png") center top / contain no-repeat;
-      background-color: #0f172a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-    }
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("fondo.png") center center / cover no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
     .overlay {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+  position: absolute;
+  bottom: 18%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 
     .btn-whatsapp {
   background: linear-gradient(135deg, #25d366, #1ebe5d);
-  color: #000;
-  padding: 16px 42px;
+  padding: 14px 36px;
   border-radius: 999px;
-  font-size: 18px;
-  font-weight: 700;
-  text-decoration: none;
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
   box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
   animation: pulse 1.8s infinite;
+}
+
+.btn-whatsapp img {
+  width: 26px;
+  height: 26px;
 }
 
 @keyframes pulse {
@@ -72,13 +78,12 @@
 
 <body>
   <div class="overlay">
-    <a
-      class="btn-whatsapp"
-      href="https://wa.me/5491156100611"
-      target="_blank"
-    >
-      WhatsApp
-    </a>
+  <a class="btn-whatsapp" href="https://wa.me/5491156100611" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+    WhatsApp
+  </a>
+</div>
+
 
     <div class="small">
       Solo para mayores de 18 años
