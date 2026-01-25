@@ -1,86 +1,109 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>WinRush</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WinRush | WhatsApp</title>
 
-<style>
-  body {
-    margin: 0;
-    background: #0b1020;
-    display: flex;
-    justify-content: center;
-  }
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  .wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    aspect-ratio: 9 / 16;
-    background: url("fondo.png") no-repeat center top;
-    background-size: contain;
-  }
+    body {
+      margin: 0;
+      background: #0b1020;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 
-  .cta {
-    position: absolute;
-    bottom: 18%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+    /* CONTENEDOR PRINCIPAL */
+    .wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      aspect-ratio: 9 / 16;
+      background: url("fondo.png") no-repeat center center;
+      background-size: cover;
+      overflow: hidden;
+    }
 
-  .cta a {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(180deg, #2aff6a, #1fbf55);
-    color: #000;
-    padding: 14px 28px;
-    border-radius: 999px;
-    font-weight: bold;
-    font-size: 18px;
-    text-decoration: none;
-    box-shadow: 0 0 25px rgba(42,255,106,.6);
-    animation: pulse 1.6s infinite;
-  }
+    /* BOTÓN WHATSAPP */
+    .cta {
+      position: absolute;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-decoration: none;
+      background: linear-gradient(180deg, #35e27a, #1fbf63);
+      padding: 14px 34px;
+      border-radius: 999px;
+      color: #000;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.7);
+      animation: pulse 1.6s infinite;
+    }
 
-  .cta img {
-    width: 26px;
-    height: 26px;
-  }
+    .cta img {
+      width: 22px;
+      height: 22px;
+    }
 
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-  }
+    /* ANIMACIÓN */
+    @keyframes pulse {
+      0% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 rgba(37, 211, 102, 0.6);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.05);
+        box-shadow: 0 0 35px rgba(37, 211, 102, 0.9);
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+        box-shadow: 0 0 0 rgba(37, 211, 102, 0.6);
+      }
+    }
 
-  .legal {
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-    font-size: 11px;
-    color: #fff;
-    opacity: .7;
-  }
-</style>
+    /* TEXTO +18 */
+    .legal {
+      position: absolute;
+      bottom: 6px;
+      width: 100%;
+      text-align: center;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+  </style>
 </head>
 
 <body>
   <div class="wrapper">
+    <!-- BOTÓN -->
+    <a
+      class="cta"
+      href="https://wa.me/5491156100611"
+      target="_blank"
+      rel="noopener"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+      />
+      WhatsApp
+    </a>
 
-    <div class="cta">
-      <a href="https://wa.me/5491156100611" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-        WhatsApp
-      </a>
-    </div>
-
+    <!-- +18 -->
     <div class="legal">
       Solo para mayores de 18 años
     </div>
-
   </div>
 </body>
 </html>
