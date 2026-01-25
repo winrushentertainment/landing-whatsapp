@@ -6,141 +6,68 @@
   <title>WinRush | WhatsApp</title>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      background: #0b1020;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+    body{
+      margin:0;
+      background:#0b1020;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* CONTENEDOR PRINCIPAL */
-    .wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
+    .wrapper{
+      position:relative;
+      width:100%;
+      max-width:420px;
       aspect-ratio: 9 / 16;
-      background: url("fondo2.png") no-repeat center center;
-      background-size: cover;
-      overflow: hidden;
+      background:url("fondo2.png") no-repeat center center;
+      background-size:cover;
+      overflow:hidden;
     }
 
-    /* BOTÓN WHATSAPP PRO */
-    .cta {
-      position: absolute;
-      bottom: 36%;
-      left: 50%;
+    /* ✅ Link invisible arriba del botón que está en la imagen */
+    .cta-hotspot{
+      position:absolute;
+      left:50%;
       transform: translateX(-50%);
-      text-decoration: none;
-
-      display: flex;
-      align-items: center;
-      gap: 14px;
-
-      padding: 18px 32px;
+      bottom: 24%;              /* 👈 ajustá este % si hace falta */
+      width: 78%;               /* 👈 ancho del botón del diseño */
+      height: 72px;             /* 👈 alto del botón del diseño */
       border-radius: 999px;
-
-      font-size: 18px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 0.3px;
-
-      background: linear-gradient(
-        180deg,
-        #33d26b 0%,
-        #12b34a 55%,
-        #0a8e35 100%
-      );
-
-      border: 1px solid rgba(255, 255, 255, 0.18);
-
-      box-shadow:
-        inset 0 2px 0 rgba(255, 255, 255, 0.25),
-        inset 0 -4px 10px rgba(0, 0, 0, 0.25),
-        0 0 0 2px rgba(255, 255, 255, 0.1),
-        0 14px 34px rgba(0, 0, 0, 0.45),
-        0 0 28px rgba(26, 255, 120, 0.55);
-
-      animation: pulse 2.2s infinite;
-      transition: transform 0.15s ease, filter 0.15s ease;
+      text-indent:-9999px;      /* accesible sin texto visible */
+      overflow:hidden;
+      /* opcional para debug: */
+      /* outline: 2px dashed lime; background: rgba(0,255,0,.15); */
     }
 
-    .cta:hover {
-      transform: translateX(-50%) translateY(-1px);
-      filter: brightness(1.05);
-    }
-
-    .cta:active {
-      transform: translateX(-50%) scale(0.98);
-    }
-
-    /* ICONO */
-    .cta img {
-      width: 26px;
-      height: 26px;
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
-    }
-
-    /* ANIMACIÓN PULSE PRO */
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow:
-          inset 0 2px 0 rgba(255, 255, 255, 0.25),
-          inset 0 -4px 10px rgba(0, 0, 0, 0.25),
-          0 0 0 2px rgba(255, 255, 255, 0.1),
-          0 14px 34px rgba(0, 0, 0, 0.45),
-          0 0 24px rgba(26, 255, 120, 0.45);
-      }
-      50% {
-        box-shadow:
-          inset 0 2px 0 rgba(255, 255, 255, 0.3),
-          inset 0 -4px 10px rgba(0, 0, 0, 0.3),
-          0 0 0 2px rgba(255, 255, 255, 0.15),
-          0 18px 44px rgba(0, 0, 0, 0.6),
-          0 0 38px rgba(26, 255, 120, 0.7);
-      }
-    }
-
-    /* TEXTO +18 */
-    .legal {
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
+    .legal{
+      position:absolute;
+      bottom: 10px;
+      width:100%;
+      text-align:center;
       font-size: 12px;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.7);
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+      color: rgba(255,255,255,.70);
+      text-shadow: 0 2px 10px rgba(0,0,0,.6);
     }
   </style>
 </head>
 
 <body>
   <div class="wrapper">
-    <!-- BOTÓN -->
-    <a
-      class="cta"
-      href="https://wa.me/5491156100611"
-      target="_blank"
-      rel="noopener"
-    >
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-        alt="WhatsApp"
-      />
-      Entrar por WhatsApp
+
+    <a class="cta-hotspot"
+       href="https://wa.me/5491156100611"
+       target="_blank"
+       rel="noopener"
+       aria-label="Entrar por WhatsApp">
+       Entrar por WhatsApp
     </a>
 
-    <!-- +18 -->
-    <div class="legal">
-      Ingreso exclusivo, solo para +18
-    </div>
+    <div class="legal">Ingreso exclusivo, solo para +18</div>
   </div>
 </body>
 </html>
