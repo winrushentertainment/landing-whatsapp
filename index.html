@@ -1,94 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WinRush</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WinRush</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #0b1020;
-  background-image: url("fondo.png");
-  background-repeat: no-repeat;
-  background-position: center 20px;
-  background-size: contain;
-  height: 100vh;
-}
-
-
-    .overlay {
-  position: absolute;
-  bottom: 18%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-
-    .btn-whatsapp {
-  background: linear-gradient(135deg, #25d366, #1ebe5d);
-  padding: 14px 36px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #000;
-  text-decoration: none;
-  box-shadow: 0 0 0 rgba(37, 211, 102, 0.7);
-  animation: pulse 1.8s infinite;
-}
-
-.btn-whatsapp img {
-  width: 26px;
-  height: 26px;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-    transform: scale(1);
+<style>
+  body {
+    margin: 0;
+    background: #0b1020;
+    display: flex;
+    justify-content: center;
   }
-  70% {
-    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
-    transform: scale(1.05);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-    transform: scale(1);
-  }
-}
 
-    .small {
-      font-size: 11px;
-      color: #ffffff;
-      opacity: 0.9;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
-    }
-  </style>
+  .wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 9 / 16;
+    background: url("fondo.png") no-repeat center top;
+    background-size: contain;
+  }
+
+  .cta {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .cta a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(180deg, #2aff6a, #1fbf55);
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    box-shadow: 0 0 25px rgba(42,255,106,.6);
+    animation: pulse 1.6s infinite;
+  }
+
+  .cta img {
+    width: 26px;
+    height: 26px;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+  }
+
+  .legal {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: #fff;
+    opacity: .7;
+  }
+</style>
 </head>
 
 <body>
-  <div class="overlay">
-  <a class="btn-whatsapp" href="https://wa.me/5491156100611" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-    WhatsApp
-  </a>
-</div>
+  <div class="wrapper">
 
+    <div class="cta">
+      <a href="https://wa.me/5491156100611" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+        WhatsApp
+      </a>
+    </div>
 
-    <div class="small">
+    <div class="legal">
       Solo para mayores de 18 años
     </div>
+
   </div>
 </body>
 </html>
