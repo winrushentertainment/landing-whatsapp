@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WinRush | Acceso</title>
 
-  <link rel="preload" as="image" href="fondo4.png">
+  <!-- Preload del fondo (mejora carga en ads) -->
+  <link rel="preload" as="image" href="fondo3.png">
 
   <style>
-    *{ box-sizing:border-box; }
+    * { box-sizing: border-box; }
 
     body{
       margin:0;
-      min-height:100vh;
+      background:#0b1020;
       display:flex;
       justify-content:center;
       align-items:center;
-      background:#0b1020;
+      min-height:100vh;
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -28,112 +29,92 @@
       background:url("fondo4.png") no-repeat center center;
       background-size:cover;
       overflow:hidden;
+
+      /* 🔧 AJUSTE FINO DEL LATIDO */
+      --y: 0px;        /* subir (-) / bajar (+) */
+      --inset: 6px;    /* grosor interno */
+      --spread: 14px;  /* tamaño del halo */
+      --scale: 1.18;   /* intensidad */
+
+      /* Color oro centralizado */
+      --gold: 245,200,106; /* #f5c86a */
     }
 
-    /* ================= BOTÓN WHATSAPP (igual a la referencia) ================= */
-
     .cta-hotspot{
-      /* paleta oro */
-      --gold1:#ffe3a0;
-      --gold2:#ffbe41;
-      --gold3:#7a4b00;
-
       position:absolute;
       left:50%;
-      bottom: 22%;
       transform: translateX(-50%);
-
-      width: 82%;
-      height: 78px;
-      padding: 0 26px;
+      bottom: 22%;
+      width: 78%;
+      height: 68px;
       border-radius: 999px;
 
       display:flex;
       align-items:center;
       justify-content:center;
-      gap: 16px;
+      gap:10px;
 
-      text-decoration:none;
-      -webkit-tap-highlight-color: transparent;
-      user-select:none;
-
-      /* Texto (dorado suave) */
-      color:#f7e7b3;
+      background: linear-gradient(180deg, #1a1a1a, #000);
+      color: rgb(var(--gold));
       font-weight: 900;
-      font-size: 24px;
-      letter-spacing: .2px;
-      text-shadow: 0 2px 0 rgba(0,0,0,.65);
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-decoration: none;
 
-      /* Fondo verde premium */
-      background:
-        radial-gradient(120% 180% at 50% 0%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 55%),
-        linear-gradient(180deg, #0f4f27 0%, #052012 100%);
-
-      /* Glow + profundidad (suave, como la imagen) */
+      border: 2px solid rgba(var(--gold), .55);
       box-shadow:
-        0 0 26px rgba(255, 187, 45, .22),
-        0 0 70px rgba(255, 160, 0, .10),
-        0 16px 26px rgba(0,0,0,.55),
-        inset 0 2px 0 rgba(255,255,255,.10),
-        inset 0 -10px 18px rgba(0,0,0,.62);
+        0 0 18px rgba(var(--gold), .35),
+        inset 0 0 12px rgba(var(--gold), .15);
 
-      position:relative;
+      text-shadow: 0 2px 8px rgba(0,0,0,.8);
+
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
     }
 
-    /* Marco dorado externo */
+    /* Efecto "press" en mobile */
+    .cta-hotspot:active{
+      transform: translateX(-50%) scale(.97);
+      box-shadow:
+        0 0 10px rgba(var(--gold), .25),
+        inset 0 0 14px rgba(0,0,0,.6);
+    }
+
+    /* Icono WhatsApp discreto */
+    .cta-hotspot .wa-icon{
+      width: 22px;
+      height: 22px;
+      color: rgb(var(--gold));
+      opacity: .85;
+      flex: 0 0 auto;
+    }
+
+    /* Latido sutil (DORADO, coherente con casino/premium) */
     .cta-hotspot::before{
       content:"";
       position:absolute;
-      inset:-3px;
+      inset: var(--inset);
       border-radius:999px;
-      background: linear-gradient(180deg, var(--gold1) 0%, var(--gold2) 55%, var(--gold3) 100%);
-      z-index:-1;
-      filter: drop-shadow(0 0 14px rgba(255, 190, 60, .28));
-    }
-
-    /* Línea dorada interna (doble borde) */
-    .cta-hotspot::after{
-      content:"";
-      position:absolute;
-      inset: 3px;
-      border-radius:999px;
-      border: 1px solid rgba(255, 214, 120, .28);
+      box-shadow: 0 0 0 0 rgba(var(--gold), .45);
+      animation: latido 2s infinite ease-out;
       pointer-events:none;
     }
 
-    /* Círculo del ícono (como la referencia) */
-    .wa-badge{
-      width: 46px;
-      height: 46px;
-      border-radius: 50%;
-      display:grid;
-      place-items:center;
-      flex: 0 0 auto;
-
-      background:
-        radial-gradient(circle at 30% 25%, #49ff93 0%, #1aa84d 42%, #0b4a24 100%);
-
-      border: 2px solid rgba(255, 200, 95, .55);
-      box-shadow:
-        0 10px 18px rgba(0,0,0,.45),
-        inset 0 2px 0 rgba(255,255,255,.18);
+    @keyframes latido{
+      0%{
+        transform: translateY(var(--y)) scale(1);
+        box-shadow: 0 0 0 0 rgba(var(--gold), .45);
+      }
+      70%{
+        transform: translateY(var(--y)) scale(var(--scale));
+        box-shadow: 0 0 0 var(--spread) rgba(var(--gold), 0);
+      }
+      100%{
+        transform: translateY(var(--y)) scale(1);
+        box-shadow: 0 0 0 0 rgba(var(--gold), 0);
+      }
     }
 
-    .wa-icon{
-      width: 24px;
-      height: 24px;
-      display:block;
-    }
-
-    /* Hover/press */
-    .cta-hotspot:hover{
-      transform: translateX(-50%) translateY(-1px);
-    }
-    .cta-hotspot:active{
-      transform: translateX(-50%) scale(.99);
-    }
-
-    /* ================= LEGAL ================= */
     .legal{
       position:absolute;
       bottom: 10px;
@@ -154,17 +135,16 @@
        href="https://wa.me/5491156100611?text=Quiero%20mi%20bono%20de%20bienvenida!!!"
        target="_blank"
        rel="noopener"
-       aria-label="Acceder por WhatsApp">
+       aria-label="Entrá por WhatsApp"
+       role="button">
 
-      <span class="wa-badge" aria-hidden="true">
-        <!-- WhatsApp SVG blanco -->
-        <svg class="wa-icon" viewBox="0 0 32 32">
-          <path fill="#ffffff" d="M19.11 17.53c-.27-.14-1.62-.8-1.87-.9-.25-.09-.43-.14-.61.14-.18.27-.7.9-.86 1.08-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.97 2.64 1.11 2.82.14.18 1.91 2.92 4.62 4.09.64.28 1.14.45 1.53.57.64.2 1.22.17 1.68.1.51-.08 1.62-.66 1.85-1.29.23-.63.23-1.17.16-1.29-.06-.12-.25-.2-.52-.34z"/>
-          <path fill="#ffffff" d="M26.67 5.33C23.85 2.5 20.1.94 16.1.94 8.08.94 1.56 7.46 1.56 15.48c0 2.55.67 5.04 1.95 7.23L1.43 31l8.46-2.02c2.13 1.16 4.53 1.77 6.98 1.77h.01c8.02 0 14.54-6.52 14.54-14.54 0-4-1.56-7.75-4.39-10.88zm-10.57 23.0h-.01c-2.17 0-4.3-.58-6.16-1.69l-.44-.26-5.02 1.2 1.34-4.89-.29-.5a12.2 12.2 0 0 1-1.85-6.45c0-6.73 5.48-12.21 12.22-12.21 3.26 0 6.33 1.27 8.63 3.57a12.1 12.1 0 0 1 3.58 8.64c0 6.74-5.48 12.59-12.0 12.59z"/>
-        </svg>
-      </span>
+      <!-- Icono WhatsApp (SVG embebido, no depende de internet) -->
+      <svg class="wa-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path fill="currentColor" d="M19.11 17.2c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.84 1.05-.15.18-.31.2-.58.07-.27-.14-1.12-.41-2.13-1.31-.79-.7-1.32-1.57-1.47-1.84-.15-.27-.02-.41.11-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.45-.82-1.99-.22-.53-.44-.46-.6-.47l-.51-.01c-.18 0-.47.07-.71.34-.24.27-.93.91-.93 2.22 0 1.31.95 2.58 1.08 2.76.13.18 1.87 2.85 4.53 4 .63.27 1.12.43 1.5.55.63.2 1.2.17 1.65.1.5-.07 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.07-.11-.24-.18-.51-.31z"/>
+        <path fill="currentColor" d="M26.67 5.33A12.9 12.9 0 0016.02 1C8.86 1 3.03 6.83 3.03 13.99c0 2.27.59 4.49 1.71 6.46L3 31l10.82-1.68a12.93 12.93 0 006.2 1.58h.01c7.16 0 12.99-5.83 12.99-12.99 0-3.47-1.35-6.73-3.35-9.58zM20.02 28.5h-.01a10.8 10.8 0 01-5.51-1.51l-.39-.23-6.42 1 1.04-6.26-.25-.41a10.79 10.79 0 01-1.65-5.74C6.83 8 10.84 4 16.02 4c2.88 0 5.6 1.12 7.64 3.16A10.74 10.74 0 0126.83 15.9c0 5.18-4.01 12.6-6.81 12.6z"/>
+      </svg>
 
-      <span>Acceder por WhatsApp</span>
+      <span>WhatsApp.</span>
     </a>
 
     <div class="legal">Ingreso exclusivo, solo para +18</div>
