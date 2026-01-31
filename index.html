@@ -32,37 +32,41 @@
 
     /* ================= HOTSPOT CON LATIDO DORADO ================= */
 
-    .cta-hotspot::before{
-  content:"";
-  position:absolute;
+    .cta-hotspot{
+      position:absolute;
+      left:50%;
+      bottom:22%;
+      transform:translateX(-50%);
 
-  /* 🔧 AJUSTE REAL DE ALTURA DEL LATIDO */
-  top: 10px;      /* ← bajá o subí esto */
-  bottom: -2px;   /* ← compensación */
+      /* AJUSTÁ SOLO ESTOS 3 SI HACE FALTA */
+      width:82%;
+      height:88px;
+      border-radius:999px;
 
-  left: 6px;
-  right: 6px;
+      background:transparent;
+      border:none;
+      outline:none;
+      cursor:pointer;
 
-  border-radius:999px;
-  pointer-events:none;
+      -webkit-tap-highlight-color:transparent;
+      user-select:none;
 
-  box-shadow:0 0 0 0 rgba(255,190,80,.55);
-  animation: latido 2.1s infinite ease-out;
-}
-
+      /* importante para accesibilidad */
+      text-indent:-9999px;
+      overflow:hidden;
+      white-space:nowrap;
+    }
 
     /* LATIDO DORADO (VISIBLE) */
     .cta-hotspot::before{
-  content:"";
-  position:absolute;
-  inset:6px;
-  border-radius:999px;
-  transform: translateY(1px);
-  box-shadow:0 0 0 0 rgba(255,190,80,.55);
-  animation:latido 2.1s infinite ease-out;
-  pointer-events:none;
-}
-
+      content:"";
+      position:absolute;
+      inset:6px;
+      border-radius:999px;
+      box-shadow:0 0 0 0 rgba(255, 190, 80, .55);
+      animation:latido 2.1s infinite ease-out;
+      pointer-events:none;
+    }
 
     @keyframes latido{
       0%{
