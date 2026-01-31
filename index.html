@@ -32,30 +32,24 @@
 
     /* ================= HOTSPOT CON LATIDO DORADO ================= */
 
-    .cta-hotspot{
-      position:absolute;
-      left:50%;
-      bottom:22%;
-      transform:translateX(-50%);
+    .cta-hotspot::before{
+  content:"";
+  position:absolute;
 
-      /* AJUSTÁ SOLO ESTOS 3 SI HACE FALTA */
-      width:82%;
-      height:88px;
-      border-radius:999px;
+  /* 🔧 AJUSTE REAL DE ALTURA DEL LATIDO */
+  top: 10px;      /* ← bajá o subí esto */
+  bottom: -2px;   /* ← compensación */
 
-      background:transparent;
-      border:none;
-      outline:none;
-      cursor:pointer;
+  left: 6px;
+  right: 6px;
 
-      -webkit-tap-highlight-color:transparent;
-      user-select:none;
+  border-radius:999px;
+  pointer-events:none;
 
-      /* importante para accesibilidad */
-      text-indent:-9999px;
-      overflow:hidden;
-      white-space:nowrap;
-    }
+  box-shadow:0 0 0 0 rgba(255,190,80,.55);
+  animation: latido 2.1s infinite ease-out;
+}
+
 
     /* LATIDO DORADO (VISIBLE) */
     .cta-hotspot::before{
